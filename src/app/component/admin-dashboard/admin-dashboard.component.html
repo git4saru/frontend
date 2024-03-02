@@ -2,6 +2,48 @@
 
 <button class="btn btn-outline-success" (click)="logout()">Logout</button>
 
+<h2>Add Product</h2>
+<form (submit)="addProduct()">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="newProduct.title" name="title" required>
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input type="text" class="form-control" id="description" [(ngModel)]="newProduct.description" name="description" required>
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="number" class="form-control" id="price" [(ngModel)]="newProduct.price" name="price" required>
+  </div>
+  <div class="form-group">
+    <label for="discountPercentage">Discount Percentage:</label>
+    <input type="number" class="form-control" id="discountPercentage" [(ngModel)]="newProduct.discountPercentage" name="discountPercentage" required>
+  </div>
+  <div class="form-group">
+    <label for="rating">Rating:</label>
+    <input type="number" class="form-control" id="rating" [(ngModel)]="newProduct.rating" name="rating" required>
+  </div>
+  <div class="form-group">
+    <label for="stock">Stock:</label>
+    <input type="number" class="form-control" id="stock" [(ngModel)]="newProduct.stock" name="stock" required>
+  </div>
+  <div class="form-group">
+    <label for="brand">Brand:</label>
+    <input type="text" class="form-control" id="brand" [(ngModel)]="newProduct.brand" name="brand" required>
+  </div>
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <input type="text" class="form-control" id="category" [(ngModel)]="newProduct.category" name="category" required>
+  </div>
+  <div class="form-group">
+    <label for="thumbnail">Thumbnail:</label>
+    <input type="text" class="form-control" id="thumbnail" [(ngModel)]="newProduct.thumbnail" name="thumbnail">
+  </div>
+  <!-- Add more input fields for other product properties as needed -->
+  <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+
 <h2>Products</h2>
 <table class="table">
   <thead>
