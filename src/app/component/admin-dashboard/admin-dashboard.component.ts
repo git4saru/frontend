@@ -33,7 +33,13 @@ export class AdminDashboardComponent implements OnInit {
   loadProducts(): void {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
+      this.products.forEach(product => {
+        console.log('Title:', product.title);
+        console.log('id:', product.id);
+        console.log('-------------------------------------------');
+      });
     });
+    
   }
 
   saveChanges(product: Product): void {
@@ -56,6 +62,26 @@ export class AdminDashboardComponent implements OnInit {
       }
     );
   }
+
+  deleteProduct(product: Product): void {
+    if (!product || !product.id) {
+      console.error('Invalid product or product ID');
+      return;
+    }
+  
+    if (confirm('Are you sure you want to delete this product?')) {
+      this.productService.deleteProduct(product.id).subscribe(
+        () => {
+          console.log('Product deleted successfully');
+          this.loadProducts(); // Reload products after successful deletion
+        },
+        (error) => {
+          console.error('Error deleting product:', error);
+        }
+      );
+    }
+  }
+  
 
   resetNewProduct(): void {
     this.newProduct = {

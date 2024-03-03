@@ -61,7 +61,10 @@
       <td>{{ product.description }}</td>
       <td><input type="number" [(ngModel)]="product.price"></td>
       <td><input type="number" [(ngModel)]="product.stock"></td>
-      <td><button class="btn btn-primary" (click)="saveChanges(product)">Save</button></td>
+      <td>
+        <button class="btn btn-primary" (click)="saveChanges(product)">Save</button>
+         <button class="btn btn-danger" (click)="deleteProduct(product)">Delete</button> 
+      </td>
     </tr>
   </tbody>
 </table>
