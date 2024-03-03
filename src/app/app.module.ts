@@ -9,6 +9,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
+import { CartService } from './service/cart.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
     LoginComponent,
     SignupComponent,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    
   ],
   imports: [
     BrowserModule,

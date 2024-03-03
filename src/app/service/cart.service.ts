@@ -33,4 +33,14 @@ export class CartService {
   getTotal(): number {
     return this.cartItems.reduce((total, product) => total + product.price, 0);
   }
+
+  clearCart() {
+    // Clear the cart by resetting the cartItems array to an empty array
+    this.cartItems = [];
+    this.cartSubject.next(this.cartItems);
+  }
+
+  isEmpty(): boolean {
+    return this.cartItems.length === 0;
+  }
 }

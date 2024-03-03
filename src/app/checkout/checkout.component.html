@@ -1,1 +1,15 @@
-<p>checkout works!</p>
+<h2>Checkout</h2>
+
+<div *ngIf="!cartService.isEmpty(); else emptyCart">
+  <p>Items in your cart:</p>
+  <ul>
+    <li *ngFor="let item of cartService.getCartItems()">
+      {{ item.description }} - {{ item.price }}
+    </li>
+  </ul>
+  <button (click)="checkout()">Proceed to Checkout</button>
+</div>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>
