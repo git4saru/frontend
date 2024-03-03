@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from '../model/product';
 import { CartService } from '../service/cart.service';
+import { Router } from '@angular/router'; // Import Router for navigation
 
 @Component({
   selector: 'app-cart',
@@ -19,7 +20,7 @@ export class CartComponent implements OnInit {
   }
   cartItems: Product[] = [];
 
-  constructor(private _cartService: CartService) { }
+  constructor(private _cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartService.cart$.subscribe((items: Product[]) => {
@@ -34,4 +35,9 @@ export class CartComponent implements OnInit {
   getTotal(): number {
     return this.cartService.getTotal();
   }
+  checkout() {
+    // Navigate to the checkout page
+    this.router.navigate(['/checkout']);
+  }
+
 }
